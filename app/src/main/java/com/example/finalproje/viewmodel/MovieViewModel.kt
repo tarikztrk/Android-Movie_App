@@ -25,11 +25,11 @@ class MovieViewModel(
 
 
 
-    fun getDataFromAPI() {
+    fun getDataFromAPI(searchText : String= "") {
         movieLoading.value = Resource.loading(true)
 
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            val resource = movieDownloadRepository.downloadMovies()
+            val resource = movieDownloadRepository.downloadMovies(searchText)
             withContext(Dispatchers.Main) {
                 resource.data?.let {
                     movieLoading.value = Resource.loading(false)

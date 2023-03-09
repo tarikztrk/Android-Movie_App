@@ -6,9 +6,9 @@ import com.example.finalproje.service.MovieAPI
 import com.example.finalproje.util.Resource
 
 class MovieDownloadImpl (private val api: MovieAPI) : MovieDownload {
-    override suspend fun downloadMovies(): Resource<SearchModel> {
+    override suspend fun downloadMovies(movieName : String): Resource<SearchModel> {
         return try {
-            val response = api.getData("heat")
+            val response = api.getData(movieName)
             if(response.isSuccessful){
                 response.body()?.let {
                     return@let Resource.success(it)

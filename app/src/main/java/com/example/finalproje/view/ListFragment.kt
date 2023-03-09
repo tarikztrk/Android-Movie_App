@@ -81,7 +81,9 @@ class ListFragment : Fragment(), RecyclerViewAdapter.Listener, AndroidScopeCompo
         //loadData()
 
         observeLiveData()
-
+        binding.serachButton.setOnClickListener{
+            viewModel.getDataFromAPI(binding.searchText.text.toString())
+        }
         //println(hello)
     }
 /*

@@ -5,5 +5,5 @@ import com.example.finalproje.model.SearchModel
 import com.example.finalproje.util.Resource
 
 interface MovieDownload {
-    suspend fun downloadMovies() : Resource<SearchModel>
+    suspend fun downloadMovies(movieName : String = "heat") : Resource<SearchModel>
 }

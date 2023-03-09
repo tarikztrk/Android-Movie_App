@@ -35,7 +35,7 @@ class DetailFragment : Fragment() {
         arguments?.let {
             val imgUri: Uri = Uri.parse( DetailFragmentArgs.fromBundle(it).movie.Poster)
 
-            Picasso.with(requireContext()).load(imgUri).into(binding.moviePoster);
+            Picasso.get().load(imgUri).into(binding.moviePoster);
 
             //binding.moviePoster.setImageBitmap(image)
             binding.movieName.text = DetailFragmentArgs.fromBundle(it).movie.Title
